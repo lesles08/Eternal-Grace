@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@theme {
+  /* This is the new V4 way to define your design tokens */
+  --font-serif: "var(--font-playfair)", serif;
+  --font-sans: "var(--font-inter)", sans-serif;
+  
+  --color-stone-50: #fafaf9;
+  --color-slate-900: #0f172a;
+  --color-amber-400: #fbbf24;
+}
+
+:root {
+  --background: #fafaf9;
+  --foreground: #0f172a;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+.grid .memorial-card-container:hover .bg-slate-900 {
+	background-color: var(--color-amber-600);
+}
+.memorial-card-container {
+  /* Set the base transition here so it animates both IN and OUT */
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), 
+              box-shadow 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform; /* Helps the browser pre-optimize the animation */
+}
+
+.memorial-card-container:hover {
+  transform: translateY(-1px); /* Slightly more lift for a floaty feel */
+  box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.1), 
+              0 18px 36px -18px rgba(0, 0, 0, 0.15);
+}
+
+.memorial-card-container img {
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.memorial-card-container:hover img {
+  transform: scale(1.04);
+}
+
+a, button {
+	cursor: pointer;
+}
